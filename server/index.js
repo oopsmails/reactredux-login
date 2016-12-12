@@ -3,11 +3,11 @@ import path from 'path';
 
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
-// import webpackConfig from '../webpack.config.dev';
+import webpackConfig from '../webpack.config.babel';
 
 let app = express();
 
-// app.use(webpackMiddleware(webpack(webpackConfig)));
+app.use(webpackMiddleware(webpack(webpackConfig)));
 
 const SERVER_PORT = 3080;
 
