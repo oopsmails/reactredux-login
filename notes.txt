@@ -61,6 +61,12 @@ https://www.youtube.com/watch?v=NRQqKbioTTw&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiC
 
 https://github.com/Remchi/reddice/commit/6d42ddbe8334c635cbb13f35f7884c929e9f8e99
 
+-------
+React & Redux #10. User Sign Up: Flash Messages Reducer (Part 1)
+https://www.youtube.com/watch?v=0goHDxI-5wQ&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY&index=11
 
+https://github.com/Remchi/reddice/commit/84296569e65bb620aca07d3138934235221ab94e
+
+npm install --save shortid
 
 
