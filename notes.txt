@@ -11,4 +11,41 @@ npm install --save axios
 npm install --save redux react-redux redux-thunk
 
 
+React & Redux #07. User Sign Up: Server-side Validation
+https://www.youtube.com/watch?v=gZ_fR6o98dE&index=8&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY
+
+https://github.com/Remchi/reddice/tree/4962a3de593dedb0f06e3a9fd9928850ea1e6347
+
+npm install --save body-parser
+npm install --save validator
+npm install --save classnames
+
+user.js: setTimeout to see the Sign up button is disabled after clicking
+12:30
+
+**IMPORTANT**: If you follow this series recently you might use axios version newer than 0.12.0. 
+To follow along this series without any problem just make sure that you use older version (0.12.0). 
+You can learn about this conflict in episode #19.5 (http://remzolotykh.net/react-and-redu...)
+
+# npm r --save axios
+# npm i --save axios@0.12.0
+
+Or try,
+
+Link http://www.remzolotykh.net/react-and-redux-19-5-some-corrections-and-feedback-from-viewers/ don't work. how to write example using the latest version of axios?﻿
+Reply    
+View all 4 replies 
+ Chris Pauley 
+Chris Pauley1 month ago
+this.props.userSignupRequest(this.state).then(
+      () => {})
+      .catch(error => {
+        console.log("error.message: ", error.message);
+        console.log("error.code: ", error.code);
+        console.log("error.config: ", error.config);
+        console.log("error.response: ", error.response);
+        console.log("error.response.data: ", error.response.data);
+        this.setState({errors: error.response.data})} );
+
+--
 

@@ -1,15 +1,21 @@
 import express from 'express';
 import path from 'path';
+import bodyParser from 'body-parser';
 
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev';
 
+import users from './routes/users';
+
 let app = express();
 
+app.use(bodyParser.json());
+
+app.use('/api/users', users);
+
 const compiler = webpack(webpackConfig);
-// app.use(webpackMiddleware(compiler));
 
 app.use(webpackMiddleware(compiler, {
     hot: true,
@@ -18,10 +24,8 @@ app.use(webpackMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 
-const SERVER_PORT = 3080;
-
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, './index.html'));
 });
 
-app.listen(SERVER_PORT, () => { console.log('Running on locoalhost:' + SERVER_PORT) });
+app.listen(3080, () => console.log('Running on localhost:3000'));
