@@ -54,11 +54,11 @@ class SignupForm extends React.Component {
           this.context.router.push('/');
         })
         .catch(error => {
-          console.log("error.message: ", error.message);
-          console.log("error.code: ", error.code);
-          console.log("error.config: ", error.config);
-          console.log("error.response: ", error.response);
-          console.log("error.response.data: ", error.response.data);
+          // console.log("error.message: ", error.message);
+          // console.log("error.code: ", error.code);
+          // console.log("error.config: ", error.config);
+          // console.log("error.response: ", error.response);
+          // console.log("error.response.data: ", error.response.data);
           this.setState({ errors: error.response.data })
         });
 
