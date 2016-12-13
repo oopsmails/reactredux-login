@@ -9,6 +9,7 @@ class App extends React.Component {
             //<Greetings />
             <div className = "container">
                 <NavigationBar />
+                { this.props.children }
             </div>
         );
     }
