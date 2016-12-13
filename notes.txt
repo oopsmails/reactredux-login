@@ -55,6 +55,12 @@ https://www.youtube.com/watch?v=MOEBvTkHLac&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiC
 https://github.com/Remchi/reddice/tree/3c55b9fa946a71f7889d7d81311d806317aab41e
 
 
+-------
+React & Redux #09. User Sign Up: Two ways to redirect
+https://www.youtube.com/watch?v=NRQqKbioTTw&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY&index=10
+
+https://github.com/Remchi/reddice/commit/6d42ddbe8334c635cbb13f35f7884c929e9f8e99
+
 
 
 

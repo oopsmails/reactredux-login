@@ -1,11 +1,11 @@
-
-
 import React from 'react';
+// import { browserHistory } from 'react-router';
 import timezones from '../../data/timezones';
 import map from 'lodash/map';
 import classnames from 'classnames';
 import validateInput from '../../../server/shared/validations/signup';
 import TextFieldGroup from '../common/TextFieldGroup';
+
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -43,7 +43,11 @@ class SignupForm extends React.Component {
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
       this.props.userSignupRequest(this.state).then(
-        () => { })
+        () => {
+          // can also use browserHistory ... That's a matter of preference. Personally prefer to use router
+          // browserHistory.push('/');
+          this.context.router.push('/');
+        })
         .catch(error => {
           console.log("error.message: ", error.message);
           console.log("error.code: ", error.code);
@@ -130,6 +134,10 @@ class SignupForm extends React.Component {
 
 SignupForm.propTypes = {
   userSignupRequest: React.PropTypes.func.isRequired
+}
+
+SignupForm.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 export default SignupForm;
