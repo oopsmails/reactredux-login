@@ -13,7 +13,7 @@ export default {
         path: '/',
         publicPath: '/'
     },
-    plugins:[
+    plugins: [
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin()
@@ -22,7 +22,10 @@ export default {
         loaders: [
             {
                 test: /\.js$/,
-                include: path.join(__dirname, 'client'),
+                include: [
+                    path.join(__dirname, 'client'),
+                    path.join(__dirname, 'server/shared')
+                ],
                 loaders: ['babel']
             }
         ]

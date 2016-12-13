@@ -47,5 +47,14 @@ this.props.userSignupRequest(this.state).then(
         console.log("error.response.data: ", error.response.data);
         this.setState({errors: error.response.data})} );
 
---
+-------
+
+React & Redux #08. User Sign Up: Client-side Validation
+https://www.youtube.com/watch?v=MOEBvTkHLac&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY&index=9
+
+https://github.com/Remchi/reddice/tree/3c55b9fa946a71f7889d7d81311d806317aab41e
+
+
+
+
 
