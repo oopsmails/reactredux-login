@@ -70,3 +70,12 @@ https://github.com/Remchi/reddice/commit/84296569e65bb620aca07d3138934235221ab94
 npm install --save shortid
 
 
+
+-------
+React & Redux #11. User Sign Up: Flash Messages Reducer (Part 2)
+https://www.youtube.com/watch?v=6doY4uRGQCg&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY&index=12
+
+https://github.com/Remchi/reddice/commit/a753e5eeaeab6a0081aaab56b2e1e263d67d5083
+
+
+
