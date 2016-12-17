@@ -59,7 +59,7 @@ class SignupForm extends React.Component {
           // console.log("error.config: ", error.config);
           // console.log("error.response: ", error.response);
           // console.log("error.response.data: ", error.response.data);
-          this.setState({ errors: error.response.data })
+          this.setState({ errors: error,  isLoading: false});
         });
 
       // only working with axios@0.12.0 and under

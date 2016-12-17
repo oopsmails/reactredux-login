@@ -7,7 +7,7 @@ import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.config.dev';
 
-import users from './routes/users';
+import users from './routes/users.02';
 
 let app = express();
 

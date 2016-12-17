@@ -79,3 +79,63 @@ https://github.com/Remchi/reddice/commit/a753e5eeaeab6a0081aaab56b2e1e263d67d508
 
 
 
+-------
+
+React & Redux #12. User Sign Up: Save User in DB
+https://www.youtube.com/watch?v=t3am_ihCFPw&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY&index=13
+
+https://github.com/Remchi/reddice/commit/55d29c0ef24665e81dc43855a174be940302423d
+
+
+Changes:
+
+# Using mongodb, see mongodb.txt
+npm install mongoose --save
+mongodb://<dbuser>:<dbpassword>@ds133398.mlab.com:33398/tutorialtoy
+
+/server/routes/users.01.js, users.02.js, users.js, all working and can be tested by changing 
+import in /server/index.js
+
+# timestamp in mongodb
+http://mongoosejs.com/docs/guide.html
+see ,{ timestamps: { createdAt: 'created_at' } } in User.js
+
+https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications
+
+TODO:
+pre save defined in Users.js is called ...
+but, looks only add timestamps in schema will make this work! will explore/test more.
+
+# The reason of initial hanging after saving is, in SignupForm.js, forget to set isLoading to false.
+this.setState({ errors: error,  isLoading: false});
+
+But, remember, mongoose.connection.close(); is needed!
+
+??? mongoose.disconnect(); is NOT working, will hang.
+
+# users.01.js is using old callback function, users.02.js using => 
+
+# test.js is for testing
+
+-------
+-------
+-------
+-------
+-------
+-------
+-------
+-------
+-------
+-------
+-------
+-------
+-------
+-------
+-------
+
+
+
+
+
+
+

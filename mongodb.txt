@@ -1,0 +1,54 @@
+npm install mongoose --save
+
+-------------------
+mongodb.txt
+
+--> Start MongoDB without access control.
+mongod.exe --port 27017 --dbpath "C:\mongodb\data"
+
+
+--> Connect to the instance.
+mongo --port 27017
+
+use admin
+db.createUser({ user: "useradmin", pwd: "adminpassword", roles: [{ role: "userAdminAnyDatabase", db: "admin" }] })
+
+--> check user
+db.auth("useradmin", "adminpassword")
+
+
+--> Re-start the MongoDB instance with access control.
+mongod --auth --port 27017 --dbpath /data/db1
+mongod.exe --dbpath "C:\mongodb\data" --config "C:\mongodb\mongod.cfg"
+
+
+--> login/Authenticate as the user administrator.
+mongo --port 27017 -u "useradmin" -p "adminpassword" --authenticationDatabase "admin"
+
+
+--> create invidual db user
+use tutorialtoy
+db.createUser({ user: "boy", pwd: "test123", roles: [{ role: "dbOwner", db: "tutorialtoy" }] })
+db.auth("boy", "test123")
+
+--> login as db user
+mongo --port 27017 -u "boy" -p "test123" --authenticationDatabase "tutorialtoy"
+
+--> connect to db
+
+var uristringmlab = 'mongodb://boy:test123@ds133398.mlab.com:33398/tutorialtoy';
+var uristringlocal = 'mongodb://boy:test123@127.0.0.1:27017/tutorialtoy';
+127.0.0.1:27017
+mongodb://<dbuser>:<dbpassword>@ds133398.mlab.com:33398/tutorialtoy
+boy/test123
+
+--> find document
+db.users.find()
+db.users.find( { qty: { $gt: 4 } } )
+
+--> drop one document
+db.users.deleteOne( { "_id" : ObjectId("5852db9fc251b61e4492095e") } );
+
+--> solving "unique not working problem"
+db.users.drop()
+db.users.reIndex()
