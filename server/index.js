@@ -12,6 +12,8 @@ import users from './routes/users.02';
 let app = express();
 
 app.use(bodyParser.json());
+// app.use(bodyParser.json({limit: '50mb'}));
+// app.use(bodyParser.urlencoded({limit: '50mb'}));
 
 app.use('/api/users', users);
 

@@ -115,9 +115,37 @@ But, remember, mongoose.connection.close(); is needed!
 
 # users.01.js is using old callback function, users.02.js using => 
 
+result.then(
+  function (user) {
+      console.log('saved!');
+      console.log(user);
+      res.json({ success: true });
+  })
+  .catch(
+  function (err) {
+      if (err) {
+          console.log('Error on save!');
+          console.log(err);
+          mongoose.connection.close();
+          res.status(500).json(err);
+      }
+  }
+);
+
 # test.js is for testing
 
 -------
+
+React & Redux #13. User Sign Up: Uniqueness Validation (Part 1)
+https://www.youtube.com/watch?v=0wseMVetJ_g&index=14&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY
+
+https://github.com/Remchi/reddice/commit/ebc7a12af70e7a9e4ce7ed7a7c78f4087e7c3650
+
+npm install --save bcrypt-nodejs
+
+Intellij debugger configuration see gmail ...
+
+
 -------
 -------
 -------

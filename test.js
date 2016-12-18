@@ -13,6 +13,9 @@ mongoose.connect(uri, function (err, res) {
     }
 });
 
+// var db = mongoose.createConnection('mongodb://localhost/test2');
+// db.model('User', userSchema);
+
 var Schema = mongoose.Schema;
 var userSchema = new Schema({
     username: { type: String, required: true, unique: true },
@@ -23,8 +26,8 @@ var userSchema = new Schema({
 
 });
 
-var PUser = mongoose.model('User', userSchema);
-var test = new PUser({
+var User = mongoose.model('User', userSchema);
+var test = new User({
     username: 'username',
     password: 'password',
     email: 'email',
@@ -32,19 +35,41 @@ var test = new PUser({
 });
 var result = test.save();
 
-result.then(
-    function (user) {
-        console.log('saved!');
-        console.log(user);
-    })
-    .catch(
-    function (err) {
-        if (err) {
-            console.log('Error on save!');
-            console.log(err);
+// result.then(
+//     function (user) {
+//         console.log('saved!');
+//         console.log(user);
+//     })
+//     .catch(
+//     function (err) {
+//         if (err) {
+//             console.log('Error on save!');
+//             console.log(err);
+//         }
+//     }
+//     );
+
+
+result.then(user => {
+    console.log('saved!');
+})
+    .catch(error => {
+        console.log('error when saving! error = ' + error);
+    });
+
+
+User.find(
+    { $or: [{ username: { $eq: 'username' } }, { email: { $eq: 'email' } }] }
+    , (error, user) => {
+        if (user) {
+            console.log("found user =" + user);
         }
-    }
-    );
+
+        if (error) {
+            console.log("error when finding =" + error);
+        }
+
+    })
 
 mongoose.disconnect();
 

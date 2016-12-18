@@ -1,6 +1,7 @@
 // grab the things we need
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var bcrypt = require('bcrypt-nodejs')
 
 // create a schema
 var userSchema = new Schema({
@@ -30,7 +31,7 @@ var userSchema = new Schema({
     createdDate: Date
 
 }
-,{ timestamps: { createdAt: 'created_at' } }
+    , { timestamps: { createdAt: 'created_at' } }
 
 );
 
@@ -55,9 +56,20 @@ userSchema.pre('save', function (next) {
     this.updated_at = currentDate;
 
     // if created_at doesn't exist, add to that field
-    if (!this.created_at)
+    if (!this.created_at) {
         this.created_at = currentDate;
+    }
 
+    var self = this;
+
+    if (!self.isModified('passHash')) return next();
+
+    bcrypt.hash(self.passHash, SALT_WORK_FACTOR, null, function encryptedPassword(err, hash) {
+        if (err) console.log(err);
+
+        self.passHash = hash;
+        next();
+    });
     next();
 });
 
