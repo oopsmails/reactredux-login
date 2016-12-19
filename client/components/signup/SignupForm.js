@@ -17,11 +17,13 @@ class SignupForm extends React.Component {
             passwordConfirmation: '',
             timezone: '',
             errors: {},
-            isLoading: false
+            isLoading: false,
+            invalid: false
         }
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onBlur = this.onBlur.bind(this);
     }
 
     onChange(e) {
@@ -36,6 +38,25 @@ class SignupForm extends React.Component {
         }
 
         return isValid;
+    }
+
+    onBlur(e) {
+        const field = e.target.name;
+        const val = e.target.value;
+        if (val !== '') {
+            this.props.isUserExists(val).then(res => {
+                let errors = this.state.errors;
+                let invalid;
+                if (res.data.user) {
+                    errors[field] = 'There is user with such ' + field;
+                    invalid = true;
+                } else {
+                    errors[field] = '';
+                    invalid = false;
+                }
+                this.setState({ errors, invalid });
+            });
+        }
     }
 
     onSubmit(e) {
@@ -54,21 +75,13 @@ class SignupForm extends React.Component {
                     this.context.router.push('/');
                 },
                 (error) => this.setState({errors: error.response.data, isLoading: false})
-            );
-            // .catch(error => {
-            //   console.log("error.message: ", error.message);
-            //   // console.log("error.code: ", error.code);
-            //   // console.log("error.config: ", error.config);
-            //   // console.log("error.response: ", error.response);
-            //   // console.log("error.response.data: ", error.response.data);
-            //   this.setState({ errors: error,  isLoading: false});
-            // });
-
-            // only working with axios@0.12.0 and under
-            // this.props.userSignupRequest(this.state).then(
-            //   () => { },
-            //   ({ data }) => this.setState({ errors: data, isLoading: false })
-            // );
+            )//;
+            .catch(error => {
+              console.log("error.message: ", error.message);
+              console.log("error.code: ", error.code);
+              console.log("error.config: ", error.config);
+              console.log("error.response: ", error.response);
+            });
         }
     }
 
@@ -85,6 +98,7 @@ class SignupForm extends React.Component {
                     error={errors.username}
                     label="Username"
                     onChange={this.onChange}
+                    onBlur={this.onBlur}
                     value={this.state.username}
                     field="username"
                 />
@@ -93,6 +107,7 @@ class SignupForm extends React.Component {
                     error={errors.email}
                     label="Email"
                     onChange={this.onChange}
+                    onBlur={this.onBlur}
                     value={this.state.email}
                     field="email"
                 />
@@ -130,7 +145,7 @@ class SignupForm extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <button disabled={this.state.isLoading} className="btn btn-primary btn-lg">
+                    <button disabled={this.state.isLoading  || this.state.invalid } className="btn btn-primary btn-lg">
                         Sign up
                     </button>
                 </div>
@@ -141,7 +156,8 @@ class SignupForm extends React.Component {
 
 SignupForm.propTypes = {
     userSignupRequest: React.PropTypes.func.isRequired,
-    addFlashMessage: React.PropTypes.func.isRequired
+    addFlashMessage: React.PropTypes.func.isRequired,
+    isUserExists: React.PropTypes.func.isRequired
 }
 
 SignupForm.contextTypes = {

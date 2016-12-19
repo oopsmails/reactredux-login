@@ -9,6 +9,18 @@ import mongoose from 'mongoose';
 
 let router = express.Router();
 
+router.get('/:identifier', (req, res) => {
+    User.find(
+        {$or: [{username: {$eq: req.params.identifier}}, {email: {$eq: req.params.identifier}}]}
+    ).then(user => {
+        res.json(user);
+    }).catch(error => {
+        if (error) {
+            console.log("error when finding =" + error);
+        }
+    });
+});
+
 function validateInput(data, otherValidations) {
     console.log("passed in data =" + data);
     let {errors, isValid} = otherValidations(data);
@@ -46,7 +58,7 @@ function validateInput(data, otherValidations) {
         if (error) {
             console.log("error when finding =" + error);
         }
-        mongoose.connection.close();
+        // mongoose.connection.close();
     });
 
 }
