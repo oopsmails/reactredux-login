@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon --watch server --exec babel-node -- server/index.js",
+    "serverd": "nodemon --watch server --exec babel-node -- server/index.js --debug-brk=4080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

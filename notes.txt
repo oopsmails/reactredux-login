@@ -155,11 +155,15 @@ https://www.youtube.com/watch?v=2pFngMNkJTo&index=15&list=PLuNEz8XtB51K-x3bwCC9u
 
 https://github.com/Remchi/reddice/commit/05f1c4471bcd07d418e3d7a8a941c63fd8ed6830
 
-
-
-
-
 -------
+React & Redux #15. Authentication: Login Form
+https://www.youtube.com/watch?v=tIajENrOJ0o&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY&index=16
+
+https://github.com/Remchi/reddice/commit/3ee90156bf1e6428e9b744d7bebaf70283de53c7
+
+
+
+
 -------
 -------
 -------

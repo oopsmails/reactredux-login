@@ -10,6 +10,7 @@ import mongoose from 'mongoose';
 let router = express.Router();
 
 router.get('/:identifier', (req, res) => {
+    mongoose.Promise = require('bluebird');
     User.find(
         {$or: [{username: {$eq: req.params.identifier}}, {email: {$eq: req.params.identifier}}]}
     ).then(user => {
