@@ -61,14 +61,14 @@ userSchema.pre('save', function (next) {
 
     var self = this;
 
-    if (!self.isModified('passHash')) return next();
-
-    bcrypt.hash(self.passHash, SALT_WORK_FACTOR, null, function encryptedPassword(err, hash) {
-        if (err) console.log(err);
-
-        self.passHash = hash;
-        next();
-    });
+    // if (!self.isModified('passHash')) return next();
+    //
+    // bcrypt.hash(self.passHash, SALT_WORK_FACTOR, null, function encryptedPassword(err, hash) {
+    //     if (err) console.log(err);
+    //
+    //     self.passHash = hash;
+    //     next();
+    // });
     next();
 });
 

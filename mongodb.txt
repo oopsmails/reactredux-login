@@ -18,13 +18,14 @@ db.auth("useradmin", "adminpassword")
 
 
 --> Re-start the MongoDB instance with access control.
-mongod --auth --port 27017 --dbpath /data/db1
+-- e.g, mongod --auth --port 27017 --dbpath /data/db1
 mongod.exe --dbpath "C:\mongodb\data" --config "C:\mongodb\mongod.cfg"
 
 
 --> login/Authenticate as the user administrator.
 mongo --port 27017 -u "useradmin" -p "adminpassword" --authenticationDatabase "admin"
-
+show dbs
+show users
 
 --> create invidual db user
 use tutorialtoy
@@ -33,6 +34,14 @@ db.auth("boy", "test123")
 
 --> login as db user
 mongo --port 27017 -u "boy" -p "test123" --authenticationDatabase "tutorialtoy"
+use tutorialtoy
+
+show collections
+db.users.find()
+
+db.users.drop()
+db.users.remove({})
+
 
 --> connect to db
 

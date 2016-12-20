@@ -4,21 +4,35 @@ import bcrypt from 'bcrypt-nodejs';
 import isEmpty from 'lodash/isEmpty';
 
 import User from '../models/User';
+import dbconfig from '../dbconfig'
 
 import mongoose from 'mongoose';
 
 let router = express.Router();
 
+let uristring = dbconfig.urimlab;
+
 router.get('/:identifier', (req, res) => {
+    console.log("calling /users/:identifier");
     mongoose.Promise = require('bluebird');
+    mongoose.connect(uristring, function (err, res) {
+        if (err) {
+            console.log('2 ERROR connecting to: ' + uristring + '. ' + err);
+        } else {
+            console.log('1 Succeeded connected to: ' + uristring);
+        }
+    });
     User.find(
         {$or: [{username: {$eq: req.params.identifier}}, {email: {$eq: req.params.identifier}}]}
     ).then(user => {
+        console.log('finding user by ' + req.params.identifier + ', returning ' + user.length + ' result(s).');
+        mongoose.connection.close();
         res.json(user);
     }).catch(error => {
         if (error) {
             console.log("error when finding =" + error);
         }
+        mongoose.connection.close();
     });
 });
 
@@ -27,7 +41,6 @@ function validateInput(data, otherValidations) {
     let {errors, isValid} = otherValidations(data);
     console.log("errors 1 =" + errors);
 
-    var uristring = 'mongodb://boy:test123@ds133398.mlab.com:33398/tutorialtoy';
     mongoose.Promise = require('bluebird');
     mongoose.connect(uristring, function (err, res) {
         if (err) {
@@ -73,16 +86,16 @@ router.post('/', (req, res) => {
             // res.json({ success: true });
 
             const {username, password, timezone, email} = req.body;
-            // const password_digest = bcrypt.hashSync(password, 10);
+            const salt = bcrypt.genSaltSync(10);
+            const password_digest = bcrypt.hashSync(password, salt);
             let date = new Date;
             var chris = new User({
                 username: username,
-                password: password,
+                password: password_digest,
                 email: email,
                 timezone: timezone
             });
 
-            // var uristring = 'mongodb://boy:test123@ds133398.mlab.com:33398/tutorialtoy';
             mongoose.Promise = require('bluebird');
             // mongoose.connect(uristring, function (err, res) {
             //     if (err) {

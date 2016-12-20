@@ -1,7 +1,10 @@
+import dbconfig from '../dbconfig';
+
 var mongoose = require("mongoose");
 var UserSchema = require("./UserSchema");
 
-var uristring = 'mongodb://boy:test123@ds133398.mlab.com:33398/tutorialtoy';
+let uristring = dbconfig.urilocal;
+
 mongoose.connect(uristring);
 
 var db = mongoose.connection;

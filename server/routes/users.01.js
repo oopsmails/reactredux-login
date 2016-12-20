@@ -3,8 +3,11 @@ import validateInput from '../shared/validations/signup';
 
 import mongoose from 'mongoose';
 
+import dbconfig from '../dbconfig';
+
 let router = express.Router();
 
+let uristring = dbconfig.urilocal;
 
 router.post('/', (req, res) => {
     const { errors, isValid } = validateInput(req.body);
@@ -23,7 +26,7 @@ router.post('/', (req, res) => {
             createdDate: Date
 
         });
-        var uristring = 'mongodb://boy:test123@ds133398.mlab.com:33398/tutorialtoy';
+        // var uristring = 'mongodb://boy:test123@ds133398.mlab.com:33398/tutorialtoy';
         mongoose.Promise = require('bluebird');
         var db = mongoose.connect(uristring, function (err, res) {
             if (err) {

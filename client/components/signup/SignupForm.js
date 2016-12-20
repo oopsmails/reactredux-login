@@ -43,11 +43,13 @@ class SignupForm extends React.Component {
     onBlur(e) {
         const field = e.target.name;
         const val = e.target.value;
+        console.log('onBlur, val = ' + val);
         if (val !== '') {
             this.props.isUserExists(val).then(res => {
                 let errors = this.state.errors;
+                console.log('onBlur, res = ' + res);
                 let invalid;
-                if (res.data.user) {
+                if (res.data && res.data[0]) {
                     errors[field] = 'There is user with such ' + field;
                     invalid = true;
                 } else {

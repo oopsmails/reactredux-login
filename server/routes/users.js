@@ -1,10 +1,13 @@
 import express from 'express';
 import validateInput from '../shared/validations/signup';
 import UserModel from '../models/UserModel';
+import dbconfig from '../dbconfig';
 
 import mongoose from 'mongoose';
 
 let router = express.Router();
+
+let uristring = dbconfig.urilocal;
 
 router.post('/', (req, res) => {
     const { errors, isValid } = validateInput(req.body);
