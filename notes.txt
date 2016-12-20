@@ -161,8 +161,11 @@ https://www.youtube.com/watch?v=tIajENrOJ0o&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiC
 
 https://github.com/Remchi/reddice/commit/3ee90156bf1e6428e9b744d7bebaf70283de53c7
 
-
-
+- form state: fields, errors, isLoading
+- onSubmit, onChange
+- form Validation
+- dispatch thunk action
+- handle response
 
 -------
 -------
