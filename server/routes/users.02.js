@@ -10,7 +10,7 @@ import mongoose from 'mongoose';
 
 let router = express.Router();
 
-let uristring = dbconfig.urimlab;
+let uristring = dbconfig.mongodburi;
 
 router.get('/:identifier', (req, res) => {
     console.log("calling /users/:identifier");

@@ -168,6 +168,21 @@ https://github.com/Remchi/reddice/commit/3ee90156bf1e6428e9b744d7bebaf70283de53c
 - handle response
 
 -------
+React & Redux #16. Authentication: Verify User Credentials
+https://www.youtube.com/watch?v=O8z0F8Lqz1k&index=17&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY
+
+https://github.com/Remchi/reddice/commit/3a5f28ad2d5b977d2beca3a41b98b8789de0b76d
+
+npm install --save jsonwebtoken
+
+
+- fix "WARN: ... There is another module with a equal name when case is ignored."
+"import Validator from 'Validator';"
+
+The filesystem is case-insensitive, so Validator will compile the same file twice.
+
+
+
 -------
 -------
 -------

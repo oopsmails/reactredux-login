@@ -1,4 +1,4 @@
-import Validator from 'validator';
+import Validator from 'Validator';
 import isEmpty from 'lodash/isEmpty';
 
 export default function validateInput(data) {

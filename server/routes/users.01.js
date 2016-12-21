@@ -6,8 +6,7 @@ import mongoose from 'mongoose';
 import dbconfig from '../dbconfig';
 
 let router = express.Router();
-
-let uristring = dbconfig.urilocal;
+let uristring = dbconfig.mongodburi;
 
 router.post('/', (req, res) => {
     const { errors, isValid } = validateInput(req.body);
