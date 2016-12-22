@@ -181,9 +181,20 @@ npm install --save jsonwebtoken
 
 The filesystem is case-insensitive, so Validator will compile the same file twice.
 
-
-
 -------
+React & Redux #17. Authentication: Use JWT on Client
+https://www.youtube.com/watch?v=FyyPUIAe6kc&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY&index=18
+
+-- added in webpack.config.dev.js
+node: {
+        net: 'empty',
+        dns: 'empty'
+    }
+
+set in Store ...
+
+git commit: user jwt on client and set current user in redux store
+
 -------
 -------
 -------

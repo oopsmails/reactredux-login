@@ -12,12 +12,12 @@ export default () => {
                     <Link to="/" className="navbar-brand">Red Dice</Link>
                 </div>
 
-                <div className="collapse navbar-collapse">
+                {/*<div className="collapse navbar-collapse">*/}
                     <ul className="nav navbar-nav navbar-right">
                         <li><Link to="/signup" className="navbar-brand">Sign up</Link></li>
                         <li><Link to="/login">Login</Link></li>
                     </ul>
-                </div>
+                {/*</div>*/}
             </div>
         </nav>
     )

@@ -3,6 +3,6 @@ var urilocal = 'mongodb://boy:test123@127.0.0.1:27017/tutorialtoy';
 
 
 export default {
-  mongodburi: urilocal
+  mongodburi: urimlab
 }
 
