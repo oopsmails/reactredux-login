@@ -222,9 +222,16 @@ https://github.com/Remchi/reddice/commit/ca69ef81f83deec60354dd97785bc56886532ff
 - Replace jsonwebtoken with jwt-decode on client
 
 
-
-
 -------
+React & Redux #20. Protect Client-Side Routes with Higher Order Component
+https://www.youtube.com/watch?v=q5OmQvh4R3s&index=22&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY
+
+https://github.com/Remchi/reddice/commit/456dfd25875b3fbfd051dfbcccad0cd3c221c572
+
+TODO: look into more Higher Order Component
+Higher Order Component is useful, also see ICO, ShowIf, StatelessComponent
+
+
 -------
 -------
 -------
