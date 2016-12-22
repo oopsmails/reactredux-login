@@ -201,11 +201,15 @@ https://www.youtube.com/watch?v=Xa7ECigMWRs&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiC
 
 https://github.com/Remchi/reddice/commit/260f377b6eeae80a0216cdd54b95015ab7962874
 
-
-
-
+Use redux store, reducer ...
 
 -------
+React & Redux #19. Authentication: Verify JWT on Server with Express Middleware
+https://www.youtube.com/watch?v=mtkQEwp0mIA&index=20&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY
+
+https://github.com/Remchi/reddice/commit/5bcde44a753fdea31be552a52affff099e3d268b
+
+
 -------
 -------
 -------

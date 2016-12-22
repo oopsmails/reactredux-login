@@ -33,43 +33,40 @@ var test = new User({
     email: 'email',
     timezone: 'timezone'
 });
-var result = test.save();
+// var result = test.save();
 
-// result.then(
-//     function (user) {
-//         console.log('saved!');
-//         console.log(user);
-//     })
-//     .catch(
-//     function (err) {
-//         if (err) {
-//             console.log('Error on save!');
-//             console.log(err);
+// result.then(user => {
+//     console.log('saved!');
+// })
+//     .catch(error => {
+//         console.log('error when saving! error = ' + error);
+//     });
+
+
+// User.find(
+//     { $or: [{ username: { $eq: 'username' } }, { email: { $eq: 'email' } }] }
+//     , (error, user) => {
+//         if (user) {
+//             console.log("found user =" + user);
 //         }
-//     }
-//     );
 
+//         if (error) {
+//             console.log("error when finding =" + error);
+//         }
 
-result.then(user => {
-    console.log('saved!');
-})
-    .catch(error => {
-        console.log('error when saving! error = ' + error);
-    });
+//     })
 
-
-User.find(
-    { $or: [{ username: { $eq: 'username' } }, { email: { $eq: 'email' } }] }
-    , (error, user) => {
-        if (user) {
-            console.log("found user =" + user);
+User.find({ _id: "5859cae77627e2223855e5d8" }, { _id: 1, email: 1, username: 1 })
+    .then(user => {
+        if (!user || user.length <= 0) {
+            res.status(404).json({ error: 'No such user' });
         }
-
+        console.log("found user =" + user[0]);
+    }).catch(error => {
         if (error) {
             console.log("error when finding =" + error);
         }
-
-    })
+    });
 
 mongoose.disconnect();
 

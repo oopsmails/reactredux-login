@@ -27,6 +27,9 @@ mongo --port 27017 -u "useradmin" -p "adminpassword" --authenticationDatabase "a
 show dbs
 show users
 
+mlab:
+mongo ds133398.mlab.com:33398/dbname -u boy -p test123
+
 --> create invidual db user
 use tutorialtoy
 db.createUser({ user: "boy", pwd: "test123", roles: [{ role: "dbOwner", db: "tutorialtoy" }] })
