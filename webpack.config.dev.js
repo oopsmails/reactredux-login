@@ -33,9 +33,10 @@ export default {
     },
     resolve: {
         extentions: ['', '.js']
-    },
-    node: {
-        net: 'empty',
-        dns: 'empty'
     }
+    // ,
+    // node: {
+    //     net: 'empty',
+    //     dns: 'empty'
+    // }
 }

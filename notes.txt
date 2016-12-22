@@ -211,6 +211,19 @@ https://github.com/Remchi/reddice/commit/5bcde44a753fdea31be552a52affff099e3d268
 
 
 -------
+React & Redux #19.5. Some corrections and feedback from viewers
+https://www.youtube.com/watch?v=vALIhhrMct8&index=21&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY
+
+https://github.com/Remchi/reddice/commit/ca69ef81f83deec60354dd97785bc56886532ff9
+
+- Axios update to 0.13.1, done
+- Fix bug in authenticate middleware
+- To query or not to query ...?
+- Replace jsonwebtoken with jwt-decode on client
+
+
+
+
 -------
 -------
 -------

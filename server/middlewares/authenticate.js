@@ -35,9 +35,10 @@ export default (req, res, next) => {
                         console.log("found user =" + user[0]);
                         if (!user || user.length <= 0) {
                             res.status(404).json({error: 'No such user'});
+                        } else {
+                            req.currentUser = user;
+                            next();
                         }
-                        req.currentUser = user;
-                        next();
                     }).catch(error => {
                     if (error) {
                         console.log("error when finding =" + error);
