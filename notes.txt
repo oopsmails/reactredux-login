@@ -196,6 +196,15 @@ set in Store ...
 git commit: user jwt on client and set current user in redux store
 
 -------
+React & Redux #18. Authentication: Login and Logout on Client
+https://www.youtube.com/watch?v=Xa7ECigMWRs&list=PLuNEz8XtB51K-x3bwCC9uNM_cxXaiCcRY&index=19&spfreload=1
+
+https://github.com/Remchi/reddice/commit/260f377b6eeae80a0216cdd54b95015ab7962874
+
+
+
+
+
 -------
 -------
 -------
