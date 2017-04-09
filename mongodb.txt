@@ -3,6 +3,8 @@ npm install mongoose --save
 -------------------
 mongodb.txt
 
+--> install on local: mongodb-win32-x86_64-2008plus-ssl-3.4.3-signed.msi
+
 --> Start MongoDB without access control.
 mongod.exe --port 27017 --dbpath "C:\mongodb\data"
 
